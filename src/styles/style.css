@@ -30,3 +30,31 @@ body {
     height: auto;
     display: block;
 }
+
+.weather-forecast-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-forecast-container > h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.weather-forecast-container > div {
+    border: 1px solid blue;
+    display: flex;
+    height: 80%;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weather-forecast-container > div > div {
+    border: 1px solid red;
+    height: 200px;
+    width: 200px;
+}
