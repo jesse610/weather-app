@@ -9,9 +9,11 @@ import rain from "./images/rain.gif"
 import snow from "./images/snow.gif"
 import sunny from "./images/sunny.gif"
 import thunderstorm from "./images/thunderstorm.gif"
+import { translateDateToWeekday } from "./js/applicationLogic"
 
 
 // console.log(getWeatherData('San Francisco'))
 addLocationFormEventListener()
 getProcessedForecastData('hayward')
 // console.log(clouds)
+translateDateToWeekday('2023/07/11')
