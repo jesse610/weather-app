@@ -23,12 +23,19 @@ body {
 
 .weather-data-container > div {
     width: 33.33%;
+    border: 1px solid black;
+}
+
+.weather-animation-container {
+    display: flex;
+    justify-content: center;
 }
 
 .weather-animation-container > img {
     max-width: 70%;
-    height: auto;
+    height: 60%;
     display: block;
+    margin: 0;
 }
 
 .weather-forecast-container {
@@ -57,4 +64,25 @@ body {
     border: 1px solid red;
     height: 200px;
     width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.forecast-img {
+    max-width: 35%;
+    height: auto;
+    display: block;
+}
+
+.Htemp {
+    font-size: 1.3rem;
+}
+
+.day > h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    padding-bottom: 20px;
 }
