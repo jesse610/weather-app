@@ -42,6 +42,47 @@ const getWeatherData = async (location) => {
     }
 }
 
+const fetchForecastData = async (location) => {
+    try
+    {
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7b0b90612d7c491caee32617230607&q=${location}&days=4`)
+        const data = await response.json()
+        console.log(data)
+        return data
+    }
+    catch(err)
+    {
+        throw err
+    }
+}
+
+const processForecastData = (data) => {
+    const processedForecastData = data.forecast.forecastday.slice(1, 4).map((forecast, index) => ({
+        [`day${index + 1}`]: {
+            date: forecast.date,
+            maxtempF: forecast.day.maxtemp_f,
+            mintempF: forecast.day.mintemp_f,
+            rainChance: forecast.day.daily_chance_of_rain
+        }
+    }))
+
+    return processedForecastData
+}
+
+const getProcessedForecastData = async (location) => {
+    try {
+        const forecastData = await fetchForecastData(location)
+        const processedData = processForecastData(forecastData)
+        return processedData
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
+
+}
+
 export {
     getWeatherData,
+    getProcessedForecastData
 }
