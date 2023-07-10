@@ -9,33 +9,39 @@ const fetchWeatherData = async (location) => {
     }
     catch(err)
     {
-        console.log(err)
+        console.error(err)
+        throw err
     }
 }
 
 const processWeatherData = (data) => {
     const processedWeatherData = {
         location: data.location.name,
-        temperature: data.current.temp_f,
+        region: data.location.region,
         condition: data.current.condition.text,
+        temperature: data.current.temp_f,
         humidity: data.current.humidity,
+        wind: data.current.wind_mph,
+        feelsLikeTemp: data.current.feelslike_f,
+        conditionCode: data.current.condition.code,
+        isDay: data.current.is_day
     }
 
-    console.log(processedWeatherData)
+    return processedWeatherData
 }
 
-const logWeatherData = async (location) => {
+const getWeatherData = async (location) => {
     try {
         const data = await fetchWeatherData(location)
         const processedData = processWeatherData(data)
-        console.log(processedData)
+        return processedData
     }
     catch(err)
     {
-        console.log(err)
+        throw err
     }
 }
 
 export {
-    logWeatherData
+    getWeatherData,
 }
