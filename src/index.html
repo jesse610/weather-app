@@ -6,15 +6,47 @@
     <title>Weather app</title>
 </head>
 <body>
-    <div>Test 1</div>
-    <div>
-        <form action="#" id="weather-form">
-            <input type="text" name="location" id="location">
-            <button id="weather-form-btn">Submit</button>
-        </form>
+    <div class="header">
+        <div class="form-container">
+            <form action="#" id="weather-form">
+                <input type="text" name="location" id="location">
+                <button id="weather-form-btn">Submit</button>
+            </form>
+            <div class="error"></div>
+        </div>
     </div>
-    <div class="weather-data">
-        
+    <div class="weather-data-container">
+        <div class="less-weather-data">
+            <div>
+                <span id="locate"></span>
+                <span id="region"></span>
+            </div>
+            <div>
+                <span id="temp"></span>
+            </div>
+        </div>
+        <div class="weather-animation-container">
+            <img src="" alt="gif animation">
+        </div>
+        <div class="more-weather-data">
+            <div>
+                <span id="condition"></span>
+            </div>
+            <div>
+                <span id="feels-like-temp"></span>
+            </div>
+            <div>
+                <span id="humidity"></span>
+            </div>
+            <div>
+                <span id="wind-speed"></span>
+            </div>
+        </div>
+    </div>
+    <div class="weather-forecast-container">
+        <div>
+           3 day forecast placeholder
+        </div>
     </div>
 </body>
 </html>
