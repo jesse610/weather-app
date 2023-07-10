@@ -1,5 +1,5 @@
-import { getWeatherData } from "./api"
-import { getAnimationCue, processedWeatherConditionCodes } from "./applicationLogic"
+import { getProcessedForecastData, getWeatherData } from "./api"
+import { getAnimationCue, processedWeatherConditionCodes, translateDateToWeekday } from "./applicationLogic"
 
 const weatherDiv = document.querySelector('div')
 const locationInput = document.querySelector('#location')
@@ -23,7 +23,8 @@ const addLocationFormEventListener = () => {
         e.preventDefault()
         let locationName = locationInput.value
         displayWeatherData(locationName)
-        displayWeatherAnimation(locationName)
+        // displayWeatherAnimation(locationName)
+        createWeekdayDisplay(locationName)
         form.reset()
     })
 }
@@ -40,6 +41,10 @@ const displayWeatherData = async (location) => {
         humiditySpan.textContent = `Humidity: ${weatherDataObj.humidity}%`
         windSpan.textContent = `Wind speed: ${weatherDataObj.wind} mph`
         feelsLikeSpan.textContent = `Feels like: ${weatherDataObj.feelsLikeTemp}°F`
+        displayWeatherAnimation(location, weatherDataObj)
+        // setTimeout(() => {
+        //     displayWeatherAnimation(location, weatherDataObj)
+        // }, 0)
     }
     catch(err)
     {
@@ -51,13 +56,49 @@ const displayWeatherData = async (location) => {
     }
 }
 
-const displayWeatherAnimation = async (location) => {
-    const animationCue = await getAnimationCue(location)
+const displayWeatherAnimation = (location, dataObj) => {
+    const animationCue = getAnimationCue(location, dataObj)
     animationImg.src = `./images/${animationCue}.gif`
 }
 
+const createWeekdayDisplay = async (location) => {
+    const forecastData = await getProcessedForecastData(location)
+    console.log(forecastData)
+    
+    for (let i = 0; i < 3; i++)
+    {
+        let weatherAnimation = getAnimationCue(location, forecastData[i])
+        let div = document.querySelector(`#day-${i}`)
+        div.textContent = ''
+        let weekday = translateDateToWeekday(forecastData[i].date)
+
+        createWeekdayForecast(div, weekday, forecastData[i], weatherAnimation)
+    }
+}
+
+const createWeekdayForecast = (div, weekday, forecast, weatherAnimation) => {
+    let h4 = document.createElement('h4')
+    h4.textContent = weekday[0]
+    div.appendChild(h4)
+
+    let img = document.createElement('img')
+    img.className = 'forecast-img'
+    img.src = `./images/${weatherAnimation}.gif`
+    div.appendChild(img)
+
+    let span1 = document.createElement('span')
+    span1.textContent = `H:${forecast.maxtempF}°F`
+    span1.className = 'Htemp'
+    div.appendChild(span1)
+
+    let span2 = document.createElement('span')
+    span2.textContent = `L:${forecast.mintempF}°F`
+    span2.className = 'Ltemp'
+    div.appendChild(span2)
+}
+
 displayWeatherData('Union City')
-displayWeatherAnimation('Union City')
+createWeekdayDisplay('Union City')
 
 export {
     addLocationFormEventListener
