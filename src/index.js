@@ -1,4 +1,4 @@
-import { getWeatherData } from "./js/api"
+import { getProcessedForecastData, getWeatherData } from "./js/api"
 import { addLocationFormEventListener } from "./js/domLogic"
 import './styles/normalize.css'
 import './styles/style.css'
@@ -13,4 +13,5 @@ import thunderstorm from "./images/thunderstorm.gif"
 
 // console.log(getWeatherData('San Francisco'))
 addLocationFormEventListener()
+getProcessedForecastData('hayward')
 // console.log(clouds)
