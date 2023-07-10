@@ -28,7 +28,7 @@ const weatherConditionCodes = (day) => {
         }
     ]
 
-    if (day == true)
+    if (day == true || day == undefined)
     {
         return simplifiedCodes.concat(dayCode)
     }
@@ -45,10 +45,10 @@ const getWeatherConditionCodes = (isDay) => {
     return weatherConditionCodes(false)
 }
 
-const getAnimationCue = async (location) => {
-    const weatherDataObj = await getWeatherData(location)
-    const code = weatherDataObj.conditionCode
-    const isDay = weatherDataObj.isDay
+const getAnimationCue = (location, dataObj) => {
+    console.log(dataObj)
+    const code = dataObj.conditionCode
+    const isDay = dataObj.isDay
     const processedWeathercodes = getWeatherConditionCodes(isDay);
 
     console.log(processedWeathercodes)
@@ -66,7 +66,15 @@ const getAnimationCue = async (location) => {
     }
 }
 
+const translateDateToWeekday = (date) => {
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const weekdayIndex = new Date(date).getDay()
+    const filteredWeekday = days.filter((day, index) => index == weekdayIndex)
+    return filteredWeekday
+}
+
 export {
     weatherConditionCodes,
-    getAnimationCue
+    getAnimationCue,
+    translateDateToWeekday
 }
