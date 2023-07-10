@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1.5fr 1fr;
+    min-height: 100vh;
+}
+
+.header {
+    padding: 1rem;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.weather-data-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.weather-data-container > div {
+    width: 33.33%;
+}
+
+.weather-animation-container > img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+}
