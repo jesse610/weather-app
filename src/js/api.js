@@ -57,14 +57,15 @@ const fetchForecastData = async (location) => {
 }
 
 const processForecastData = (data) => {
-    const processedForecastData = data.forecast.forecastday.slice(1, 4).map((forecast, index) => ({
-        [`day${index + 1}`]: {
+    const processedForecastData = data.forecast.forecastday.slice(1, 4).map((forecast, index) => (
+        {
             date: forecast.date,
             maxtempF: forecast.day.maxtemp_f,
             mintempF: forecast.day.mintemp_f,
-            rainChance: forecast.day.daily_chance_of_rain
+            conditionCode: forecast.day.condition.code,
+            isDay: 1
         }
-    }))
+    ))
 
     return processedForecastData
 }
