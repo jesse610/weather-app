@@ -18,7 +18,7 @@ const weatherConditionCodes = (day) => {
 
     const dayCode = [
         {
-            day: [1000]
+            sunny: [1000]
         }
     ]
 
