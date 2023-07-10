@@ -14,18 +14,3 @@ import thunderstorm from "./images/thunderstorm.gif"
 // console.log(getWeatherData('San Francisco'))
 addLocationFormEventListener()
 // console.log(clouds)
-
-const forecastTester = async () => {
-    try
-    {
-        const response = await fetch('https://api.weatherapi.com/v1/forecast.json?key=7b0b90612d7c491caee32617230607&q=Hayward&days=4')
-        const data = await response.json()
-        console.log(data)
-    }
-    catch(err)
-    {
-        console.log(err)
-    }
-}
-
-console.log(forecastTester())
