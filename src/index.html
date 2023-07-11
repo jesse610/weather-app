@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a82eb620ea.js" crossorigin="anonymous"></script>
     <title>Weather app</title>
 </head>
 <body>
     <div class="header">
         <div class="form-container">
             <form action="#" id="weather-form">
-                <input type="text" name="location" id="location">
-                <button id="weather-form-btn">Submit</button>
+                <input type="text" name="location" id="location" placeholder="Enter location">
+                <input type="submit" hidden>
+                <button id="weather-form-btn"><i class="fa-solid fa-magnifying-glass-location"></i></button>
             </form>
             <div class="error"></div>
         </div>
@@ -18,11 +23,21 @@
     <div class="weather-data-container">
         <div class="less-weather-data">
             <div>
-                <span id="locate"></span>
-                <span id="region"></span>
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="l-container">
+                    <span>Location</span>
+                    <div class="location-span-container">
+                        <span id="locate"></span>
+                        <span id="region"></span>
+                    </div>
+                </div>
             </div>
             <div>
-                <span id="temp"></span>
+                <i class="fa-solid fa-temperature-half"></i>
+                <div class="l-container">
+                    <span>Temperature</span>
+                    <span id="temp"></span>
+                </div>
             </div>
         </div>
         <div class="weather-animation-container">
@@ -30,21 +45,41 @@
         </div>
         <div class="more-weather-data">
             <div>
-                <span id="condition"></span>
-            </div>
-            <div>
-                <span id="feels-like-temp"></span>
-            </div>
-            <div>
-                <span id="humidity"></span>
-            </div>
-            <div>
-                <span id="wind-speed"></span>
+                <div class="weather-data">
+                    <i class="fa-brands fa-skyatlas wd-icons"></i>
+                    <div>
+                        <span class="weather-data-text">Condition </span>
+                        <span id="condition"></span>
+                    </div>
+                </div>
+                <div class="weather-data">
+                    <i class="fa-solid fa-temperature-three-quarters wd-icons"></i>
+                    <div>
+                        <span class="weather-data-text">Feels like </span>
+                        <span id="feels-like-temp"></span>
+                    </div>
+                </div>
+                <div class="weather-data">
+                    <i class="fa-solid fa-droplet wd-icons"></i>
+                    <div>
+                        <span class="weather-data-text">Humidity </span>
+                        <span id="humidity"></span>
+                    </div>
+                </div>
+                <div class="weather-data">
+                    <i class="fa-solid fa-wind wd-icons"></i>
+                    <div>
+                        <span class="weather-data-text">Wind speed</span>
+                        <span id="wind-speed"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="weather-forecast-container">
-        <h3>Three day forecast</h3>
+        <div>
+            <h3>Three day forecast</h3>
+        </div>
         <div>
             <div class="day" id="day-0">
            
