@@ -216,3 +216,9 @@ form > button {
 .selected {
     background-color: rgb(105, 103, 103);
 }
+
+@media screen and (max-width: 1300px){
+    .weather-data-container {
+        padding: 0 5%;
+    }
+}
