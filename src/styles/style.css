@@ -73,8 +73,8 @@ form > button {
     gap: 5px;
 }
 
-#locate, #region, #temp, #country {
-    font-size: 1.7rem;
+#locate, #region, #temp, #country, #tempC {
+    font-size: 1.5rem;
     font-weight: bold;
     line-height: 2rem;
 }
@@ -95,7 +95,7 @@ form > button {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     align-items: flex-end;
 }
 
@@ -106,6 +106,10 @@ form > button {
 }
 
 .weather-data-text + span {
+    font-weight: bold;
+}
+
+.weather-data-text + span + span {
     font-weight: bold;
 }
 
@@ -143,7 +147,7 @@ form > button {
 
 .forecast-img {
     max-width: 50%;
-    height: auto;
+    height: 175px;
     display: block;
 }
 
@@ -193,4 +197,22 @@ form > button {
 
 .fa-location-dot, .fa-temperature-half {
     font-size: 2rem;
+}
+
+#F, #C {
+    padding: 8px 12px;
+    border-radius: 0.2rem;
+    color: black;
+    font-size: 1.5rem;
+    border: 1px solid silver;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background-color: rgb(105, 103, 103);
 }
