@@ -21,9 +21,12 @@ const processWeatherData = (data) => {
         country: data.location.country,
         condition: data.current.condition.text,
         temperature: data.current.temp_f,
+        temperatureC: data.current.temp_c,
         humidity: data.current.humidity,
         wind: data.current.wind_mph,
+        windK: data.current.wind_kph,
         feelsLikeTemp: data.current.feelslike_f,
+        feelsLikeTempC: data.current.feelslike_c,
         conditionCode: data.current.condition.code,
         isDay: data.current.is_day
     }
@@ -62,7 +65,9 @@ const processForecastData = (data) => {
         {
             date: forecast.date,
             maxtempF: forecast.day.maxtemp_f,
+            maxtempC: forecast.day.maxtemp_c,
             mintempF: forecast.day.mintemp_f,
+            mintempC: forecast.day.mintemp_c,
             conditionCode: forecast.day.condition.code,
             isDay: 1
         }
