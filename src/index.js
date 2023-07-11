@@ -1,4 +1,3 @@
-import { getProcessedForecastData, getWeatherData } from "./js/api"
 import { addLocationFormEventListener } from "./js/domLogic"
 import './styles/normalize.css'
 import './styles/style.css'
@@ -9,6 +8,7 @@ import rain from "./images/rain.gif"
 import snow from "./images/snow.gif"
 import sunny from "./images/sunny.gif"
 import thunderstorm from "./images/thunderstorm.gif"
-import { translateDateToWeekday } from "./js/applicationLogic"
 
 addLocationFormEventListener()
+
+
