@@ -16,8 +16,6 @@ const weatherAnimiationContainer = document.querySelector('.weather-animation-co
 const animationImg = document.querySelector('.weather-animation-container > img')
 const errorDiv = document.querySelector('.error')
 
-
-
 const addLocationFormEventListener = () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -33,18 +31,14 @@ const displayWeatherData = async (location) => {
     try 
     {
         const weatherDataObj = await getWeatherData(location)
-        console.log(weatherDataObj)
         locationSpan.textContent = `${weatherDataObj.location},`
         regionSpan.textContent = weatherDataObj.region
-        conditionSpan.textContent = `Condition: ${weatherDataObj.condition}`
-        tempSpan.textContent = `Temp: ${weatherDataObj.temperature}°F`
-        humiditySpan.textContent = `Humidity: ${weatherDataObj.humidity}%`
-        windSpan.textContent = `Wind speed: ${weatherDataObj.wind} mph`
-        feelsLikeSpan.textContent = `Feels like: ${weatherDataObj.feelsLikeTemp}°F`
+        conditionSpan.textContent = `${weatherDataObj.condition}`
+        tempSpan.textContent = `${weatherDataObj.temperature}°F`
+        humiditySpan.textContent = `${weatherDataObj.humidity}%`
+        windSpan.textContent = `${weatherDataObj.wind} mph`
+        feelsLikeSpan.textContent = `${weatherDataObj.feelsLikeTemp}°F`
         displayWeatherAnimation(location, weatherDataObj)
-        // setTimeout(() => {
-        //     displayWeatherAnimation(location, weatherDataObj)
-        // }, 0)
     }
     catch(err)
     {
@@ -63,7 +57,6 @@ const displayWeatherAnimation = (location, dataObj) => {
 
 const createWeekdayDisplay = async (location) => {
     const forecastData = await getProcessedForecastData(location)
-    console.log(forecastData)
     
     for (let i = 0; i < 3; i++)
     {
