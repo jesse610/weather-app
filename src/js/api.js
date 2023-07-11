@@ -18,6 +18,7 @@ const processWeatherData = (data) => {
     const processedWeatherData = {
         location: data.location.name,
         region: data.location.region,
+        country: data.location.country,
         condition: data.current.condition.text,
         temperature: data.current.temp_f,
         humidity: data.current.humidity,
@@ -26,7 +27,7 @@ const processWeatherData = (data) => {
         conditionCode: data.current.condition.code,
         isDay: data.current.is_day
     }
-
+    console.log(processedWeatherData)
     return processedWeatherData
 }
 
