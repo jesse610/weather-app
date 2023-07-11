@@ -7,6 +7,7 @@ const form = document.querySelector('#weather-form')
 const submitBtn = document.querySelector('#weather-form-btn')
 const locationSpan = document.querySelector('#locate')
 const regionSpan = document.querySelector('#region')
+const countrySpan = document.querySelector('#country')
 const conditionSpan = document.querySelector('#condition')
 const tempSpan = document.querySelector('#temp')
 const humiditySpan = document.querySelector('#humidity')
@@ -32,7 +33,18 @@ const displayWeatherData = async (location) => {
     {
         const weatherDataObj = await getWeatherData(location)
         locationSpan.textContent = `${weatherDataObj.location},`
-        regionSpan.textContent = weatherDataObj.region
+
+        if (weatherDataObj.country == 'United States of America')
+        {
+            regionSpan.textContent = weatherDataObj.region
+            countrySpan.textContent = ''
+        }
+        else
+        {
+            regionSpan.textContent = ''
+            countrySpan.textContent = weatherDataObj.country
+        }
+        
         conditionSpan.textContent = `${weatherDataObj.condition}`
         tempSpan.textContent = `${weatherDataObj.temperature}°F`
         humiditySpan.textContent = `${weatherDataObj.humidity}%`
