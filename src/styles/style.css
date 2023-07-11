@@ -21,12 +21,26 @@ body {
 
 form > input {
     border-radius: 3rem;
-    border: 1px solid silver;
-    color: black;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 25px;
+    width: 200px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    padding-left: 10px;
 }
 
 form > input[type='text']:focus {
     outline: none;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.719);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+form > input[type='text']::placeholder {
+    color: rgba(255, 255, 255, 0.719);
 }
 
 form > button {
@@ -59,7 +73,7 @@ form > button {
     gap: 5px;
 }
 
-#locate, #region, #temp {
+#locate, #region, #temp, #country {
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 2rem;
